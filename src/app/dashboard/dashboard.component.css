@@ -1,0 +1,9 @@
+.user {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.user span {
+    margin-left: .5rem;
+}
