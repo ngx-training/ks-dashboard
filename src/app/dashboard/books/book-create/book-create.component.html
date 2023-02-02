@@ -45,6 +45,7 @@
                     <div class="p-float-label">
                         <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
                         <label for="float-input-title">Name {{ i }}</label>
+                        <button pButton (click)="removeCategory(i)">Delete "Name {{ i }}"</button>
                     </div>
                 </div>
             </ng-container>

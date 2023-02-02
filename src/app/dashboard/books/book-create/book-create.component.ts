@@ -56,7 +56,7 @@ export class BookCreateComponent implements OnInit {
           name: [null]
         }),
         this.formBuilder.group({
-          name: [null]
+          name: ['TT']
         }),
       ])
     });
@@ -68,6 +68,10 @@ export class BookCreateComponent implements OnInit {
 
   addCategory() {
     this.categoreis.push(this.formBuilder.group({name: ['test']}));
+  }
+
+  removeCategory(index: number): void {
+    this.categoreis.removeAt(index);
   }
 
 }
