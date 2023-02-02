@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container">
+    <div class="login-form">
+        <h1>Dashboard Login</h1>
+        <form>
+            <span class="p-float-label">
+                <input id="float-input-email" type="text" pInputText [style]="{'width': '100%'}"> 
+                <label for="float-input-email">Email</label>
+            </span>
+            <span class="p-float-label">
+                <input id="float-input-password" type="password" pInputText [style]="{'width': '100%'}"> 
+                <label for="float-input-password">Password</label>
+            </span>
+            <div class="buttons">
+                <button pButton type="button">Register</button>
+                <button pButton type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
