@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface User {
-  name: string,
-  email: string,
-  birthdate?: Date | string;
-}
+import { User } from './user';
 
 @Component({
   selector: 'app-first',

@@ -1,0 +1,22 @@
+<div class="container">
+    <p-card>
+        <ng-template pTemplate="header">
+            Parent Component
+        </ng-template>
+    
+        <pre>
+            {{ user | json }}
+        </pre>
+        <br>
+        <pre>
+            {{ newUser | json }}
+        </pre>
+        
+        <ng-template pTemplate="footer">
+            Footer content here
+        </ng-template>
+    </p-card>
+    
+    
+    <app-child-one [(user)]="user"></app-child-one>
+</div>

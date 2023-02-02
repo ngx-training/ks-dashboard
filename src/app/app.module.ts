@@ -8,20 +8,26 @@ import { SecondComponent } from './second/second.component';
 
 import {ToolbarModule} from 'primeng/toolbar';
 import { FormsModule } from '@angular/forms';
+import { ParentComponent } from './parent/parent.component';
+import { ChildOneComponent } from './child-one/child-one.component';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    ParentComponent,
+    ChildOneComponent
   ],
   // Hier werden alle Module importiert
   imports: [
     BrowserModule,
     AppRoutingModule,
     ToolbarModule,
-    FormsModule
+    FormsModule,
+    CardModule
   ],
   // Hier werden die Service, Logiken importiert
   providers: [],

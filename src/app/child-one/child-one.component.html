@@ -1,0 +1,17 @@
+<p-card>
+    <ng-template pTemplate="header">
+        Child One Component
+    </ng-template>
+
+    <form>
+        <input type="text" name="name" [(ngModel)]="user.name" />
+        <br>
+        <input type="text" name="email" [(ngModel)]="user.email" />
+    </form>
+    <br>
+    <button type="button" (click)="notifyUser()">Notify User</button>
+    
+    <ng-template pTemplate="footer">
+        Footer content here
+    </ng-template>
+</p-card>
