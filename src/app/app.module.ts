@@ -3,33 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
 
-import {ToolbarModule} from 'primeng/toolbar';
-import { FormsModule } from '@angular/forms';
-import { ParentComponent } from './parent/parent.component';
-import { ChildOneComponent } from './child-one/child-one.component';
-import {CardModule} from 'primeng/card';
-import { ChildTwoComponent } from './child-two/child-two.component';
+import { IntroModule } from './intro/intro.module';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
   declarations: [
     AppComponent,
-    FirstComponent,
-    SecondComponent,
-    ParentComponent,
-    ChildOneComponent,
-    ChildTwoComponent
   ],
   // Hier werden alle Module importiert
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToolbarModule,
-    FormsModule,
-    CardModule
+    IntroModule
   ],
   // Hier werden die Service, Logiken importiert
   providers: [],
