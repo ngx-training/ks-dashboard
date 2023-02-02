@@ -18,5 +18,5 @@
     </p-card>
     
     
-    <app-child-one [(user)]="user"></app-child-one>
+    <app-child-one *ngIf="isActive" [(user)]="user"></app-child-one>
 </div>

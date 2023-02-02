@@ -12,11 +12,17 @@ export class ParentComponent implements OnInit {
 
   newUser!: User;
 
+  isActive: boolean = true;
+
   ngOnInit(): void {
     this.user = {
       name: 'Gregor Doroschenko',
       email: 'gregor@example.com'
     };
+
+    setTimeout(() => {
+      this.isActive = false;
+    }, 7000);
   }
 
 }

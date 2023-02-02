@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ParentComponent } from './parent/parent.component';
 import { ChildOneComponent } from './child-one/child-one.component';
 import {CardModule} from 'primeng/card';
+import { ChildTwoComponent } from './child-two/child-two.component';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
@@ -19,7 +20,8 @@ import {CardModule} from 'primeng/card';
     FirstComponent,
     SecondComponent,
     ParentComponent,
-    ChildOneComponent
+    ChildOneComponent,
+    ChildTwoComponent
   ],
   // Hier werden alle Module importiert
   imports: [
