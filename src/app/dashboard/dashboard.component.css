@@ -7,3 +7,15 @@
 .user span {
     margin-left: .5rem;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: calc(100vh - 80px);
+}
+
+.sidebar {
+    border-right: 1px solid #dadada;
+    margin-right: 1rem;
+}
