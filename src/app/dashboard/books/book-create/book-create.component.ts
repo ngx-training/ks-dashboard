@@ -14,6 +14,29 @@ export class BookCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm = this.buildForm();
+
+    this.createForm.valueChanges.subscribe(value => {
+      console.log('valueChanges', value);
+    });
+
+    this.createForm.statusChanges.subscribe(status => {
+      console.log('statusChanges', status);
+    });
+
+    this.createForm.get('title')?.removeValidators(Validators.required);
+
+    const oldBookd = {
+      title: 'Test Old Book',
+      author: 'Gregor Doroschenko',
+      genre: 'Comedy',
+      isAvailable: false
+    };
+
+    // Hier müssen die Werte für alle FormControl gestzt werden
+    // this.createForm.setValue(oldBookd);
+
+    // Hier werden die Werte partiell gesetzt.
+    this.createForm.patchValue(oldBookd);
   }
 
   buildForm(): FormGroup {
@@ -41,6 +64,10 @@ export class BookCreateComponent implements OnInit {
 
   get categoreis(): FormArray {
     return this.createForm.get('categories') as FormArray;
+  }
+
+  addCategory() {
+    this.categoreis.push(this.formBuilder.group({name: ['test']}));
   }
 
 }
