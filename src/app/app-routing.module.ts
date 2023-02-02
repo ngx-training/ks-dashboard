@@ -21,6 +21,7 @@ const routes: Routes = [
     path: 'dashboard', 
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) 
   },
+  { path: 'books', loadChildren: () => import('./dashboard/books/books.module').then(m => m.BooksModule) },
   {
     path: '**',
     redirectTo: 'intro'
