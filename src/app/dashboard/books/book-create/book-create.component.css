@@ -1,5 +1,5 @@
 .full-width {
-    width: 100%;
+    width: 70%;
 }
 
 .book-form {
@@ -7,9 +7,38 @@
     flex-direction: column;
 }
 
+.form-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.general {
+    flex: 1 1 0px;
+    margin-right: 3rem;
+}
+
+.relations {
+    flex: 1 1 0px;
+    margin-right: 3rem;
+}
+
 .p-float-label {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.buttons button {
+    margin-right: 1rem;
+}
+
+.checkbox label {
+    margin-left: 1.5rem;
 }

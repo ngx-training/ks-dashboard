@@ -1,55 +1,55 @@
 <div class="book-container">
     <h2>Create Book</h2>
     <form [formGroup]="createForm" class="book-form">
-        <div class="p-float-label">
-            <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="title"> 
-            <label for="float-input-title">Title</label>
-            <small *ngIf="createForm.get('title')?.hasError('required')" id="password-help" class="p-error block">Title is required.</small>
-        </div>
-        <div class="p-float-label">
-            <textarea id="float-input-title" type="text" pInputTextarea styleClass="full-width" formControlName="description"></textarea>
-            <label for="float-input-title">Description</label>
-            <small *ngIf="createForm.get('description')?.hasError('required')" id="password-help" class="p-error block">Description is required.</small>
-            <small *ngIf="createForm.get('description')?.hasError('minlength')" id="password-help" class="p-error block">Description is too short.</small>
-        </div>
-        <div class="p-float-label">
-            <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="genre"> 
-            <label for="float-input-title">Genre</label>
-        </div>
-        <div class="p-float-label">
-            <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="author"> 
-            <label for="float-input-title">Author</label>
-            <small *ngIf="createForm.get('author')?.hasError('required')" id="password-help" class="p-error block">Author is required.</small>
-        </div>
-        <div class="p-float-label">
-            <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publish_date"> 
-            <label for="float-input-title">Publish date</label>
-        </div>
-        <div class="p-float-label">
-            <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="price"> 
-            <label for="float-input-title">Price</label>
-        </div>
-        <div class="p-float-label">
-            <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
-            <label for="binary">Is available?</label>
-        </div>
-        <div class="group" formGroupName="unterGruppe">
-            <div class="p-float-label">
-                <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="test"> 
-                <label for="float-input-title">Test</label>
-            </div>
-        </div>
-        <div class="categories" formArrayName="categories">
-            <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
-                <div [formGroupName]="i">
-                    <div class="p-float-label">
-                        <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
-                        <label for="float-input-title">Name {{ i }}</label>
-                        <button pButton (click)="removeCategory(i)">Delete "Name {{ i }}"</button>
-                    </div>
+        <div class="form-content">
+            <div class="general">
+                <div class="p-float-label">
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="title"> 
+                    <label for="float-input-title">Title</label>
+                    <small *ngIf="createForm.get('title')?.hasError('required')" id="password-help" class="p-error block">Title is required.</small>
                 </div>
-            </ng-container>
-            <button type="button" pButton (click)="addCategory()">Add Category</button>
+                <div class="p-float-label">
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publish_date"> 
+                    <label for="float-input-title">Publish date</label>
+                </div>
+                <div class="p-float-label">
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="price"> 
+                    <label for="float-input-title">Price</label>
+                </div>
+                <div class="p-float-label">
+                    <textarea id="float-input-title" type="text" pInputTextarea styleClass="full-width" rows="15" formControlName="description"></textarea>
+                    <label for="float-input-title">Description</label>
+                    <small *ngIf="createForm.get('description')?.hasError('required')" id="password-help" class="p-error block">Description is required.</small>
+                    <small *ngIf="createForm.get('description')?.hasError('minlength')" id="password-help" class="p-error block">Description is too short.</small>
+                </div>
+            </div>
+            <div class="relations">
+                <div class="p-float-label">
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="genre"> 
+                    <label for="float-input-title">Genre</label>
+                </div>
+                <div class="p-float-label">
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="author"> 
+                    <label for="float-input-title">Author</label>
+                    <small *ngIf="createForm.get('author')?.hasError('required')" id="password-help" class="p-error block">Author is required.</small>
+                </div>
+                <div class="p-float-label checkbox">
+                    <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
+                    <label for="binary">Is available?</label>
+                </div>
+                <div class="categories" formArrayName="categories">
+                    <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
+                        <div [formGroupName]="i">
+                            <div class="p-float-label">
+                                <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
+                                <label for="float-input-title">Name {{ i }}</label>
+                                <button pButton (click)="removeCategory(i)">Delete "Name {{ i }}"</button>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <button type="button" pButton (click)="addCategory()">Add Category</button>
+                </div>
+            </div>
         </div>
         <div class="buttons">
             <button type="button" pButton>Cancel</button>
@@ -57,5 +57,3 @@
         </div>
     </form>
 </div>
-
-<pre>{{ createForm.value | json }}</pre>

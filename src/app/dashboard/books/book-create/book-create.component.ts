@@ -10,6 +10,8 @@ export class BookCreateComponent implements OnInit {
 
   createForm!: FormGroup;
 
+  fullWidth: any = { 'width': '100%' };
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
