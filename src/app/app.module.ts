@@ -7,6 +7,7 @@ import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 
 import {ToolbarModule} from 'primeng/toolbar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
@@ -19,7 +20,8 @@ import {ToolbarModule} from 'primeng/toolbar';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToolbarModule
+    ToolbarModule,
+    FormsModule
   ],
   // Hier werden die Service, Logiken importiert
   providers: [],

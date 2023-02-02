@@ -1,1 +1,32 @@
-<p>first works!</p>
+<button type="button" (click)="showMore()">{{ isActive ? 'Hide details' : 'Show more' }}</button>
+<ng-container *ngIf="isActive">
+    <div *ngIf="user; else noUserData">
+        <form>
+            <input type="text" name="name" [(ngModel)]="user.name" />
+            <input type="text" name="email" [(ngModel)]="user.email" />
+        </form>
+        <pre>
+            {{ user | json }}
+        </pre>
+    </div>
+    <ng-template #noUserData>
+        <p>Nutzer ist noch nicht da!</p>
+    </ng-template>
+    
+    <ng-container *ngIf="userList && userList.length > 1">
+        <div 
+            *ngFor="let userItem of userList; let i = index; let first = first; let last = last; let even = even; let odd = odd" 
+            [class.isFirst]="first" 
+            [class.isLast]="last"
+            [class.even]="even"
+            [class.odd]="odd"
+        >
+            <p>Name {{ i }}: {{ userItem.name }}</p>
+            <p>Email {{ i }}: {{ userItem.email | uppercase }}</p>
+            <p *ngIf="userItem.birthdate">Geburtstag: {{ userItem.birthdate | date:'dd.MM.yyyy HH:mm':'+0500' }}</p>
+            <pre>{{ userItem | json }}</pre>
+            <button type="button" (click)="displayInfo(userItem)">Display info</button>
+        </div>
+    </ng-container>
+</ng-container>
+

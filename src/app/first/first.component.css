@@ -1,0 +1,11 @@
+.isFirst {
+    background-color: green;
+}
+
+.isLast {
+    background-color: red;
+}
+
+.odd {
+    font-weight: 700;
+}
