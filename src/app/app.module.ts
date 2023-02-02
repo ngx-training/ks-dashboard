@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { IntroModule } from './intro/intro.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
@@ -15,7 +16,8 @@ import { IntroModule } from './intro/intro.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IntroModule
+    IntroModule,
+    LoginModule
   ],
   // Hier werden die Service, Logiken importiert
   providers: [],
