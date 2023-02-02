@@ -1,18 +1,20 @@
 <div class="container">
     <div class="login-form">
         <h1>Dashboard Login</h1>
-        <form #loginForm="ngForm">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
             <span class="p-float-label">
                 <input id="float-input-email" type="text" pInputText [style]="{'width': '100%'}" [(ngModel)]="email" name="email" required> 
                 <label for="float-input-email">Email</label>
+                <small *ngIf="loginForm.controls['email'].errors?.['required']" id="password-help" class="p-error block">Email is required.</small>
             </span>
             <span class="p-float-label">
-                <input id="float-input-password" type="password" pInputText [style]="{'width': '100%'}" [(ngModel)]="password" name="password" required> 
+                <input id="float-input-password" type="password" pInputText [style]="{'width': '100%'}" [(ngModel)]="password" name="password" required #passwordField="ngModel"> 
                 <label for="float-input-password">Password</label>
+                <small *ngIf="passwordField.errors" id="password-help" class="p-error block">Password is required.</small>
             </span>
             <div class="buttons">
                 <button pButton type="button">Register</button>
-                <button pButton type="submit" [disabled]="loginForm.invalid" (click)="login(loginForm.value)">Login</button>
+                <button pButton type="submit" [disabled]="loginForm.invalid">Login</button>
             </div>
         </form>
     </div>
