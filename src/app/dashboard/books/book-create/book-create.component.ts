@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-create',
@@ -31,9 +31,16 @@ export class BookCreateComponent implements OnInit {
       categories: this.formBuilder.array([
         this.formBuilder.group({
           name: [null]
-        })
+        }),
+        this.formBuilder.group({
+          name: [null]
+        }),
       ])
     });
+  }
+
+  get categoreis(): FormArray {
+    return this.createForm.get('categories') as FormArray;
   }
 
 }

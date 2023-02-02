@@ -33,6 +33,22 @@
             <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
             <label for="binary">Is available?</label>
         </div>
+        <div class="group" formGroupName="unterGruppe">
+            <div class="p-float-label">
+                <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="test"> 
+                <label for="float-input-title">Test</label>
+            </div>
+        </div>
+        <div class="categories" formArrayName="categories">
+            <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
+                <div [formGroupName]="i">
+                    <div class="p-float-label">
+                        <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
+                        <label for="float-input-title">Name {{ i }}</label>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
         <div class="buttons">
             <button type="button" pButton>Cancel</button>
             <button type="submit" pButton [disabled]="createForm.invalid">Create</button>
