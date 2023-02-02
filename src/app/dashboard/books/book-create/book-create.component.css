@@ -1,3 +1,15 @@
 .full-width {
     width: 100%;
 }
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-float-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}

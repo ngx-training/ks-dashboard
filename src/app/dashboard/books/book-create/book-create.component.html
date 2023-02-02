@@ -1,40 +1,37 @@
 <div class="book-container">
     <h2>Create Book</h2>
-    <form [formGroup]="createForm">
+    <form [formGroup]="createForm" class="book-form">
         <div class="p-float-label">
             <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="title"> 
             <label for="float-input-title">Title</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
+            <small *ngIf="createForm.get('title')?.hasError('required')" id="password-help" class="p-error block">Title is required.</small>
         </div>
         <div class="p-float-label">
             <textarea id="float-input-title" type="text" pInputTextarea styleClass="full-width" formControlName="description"></textarea>
             <label for="float-input-title">Description</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
+            <small *ngIf="createForm.get('description')?.hasError('required')" id="password-help" class="p-error block">Description is required.</small>
+            <small *ngIf="createForm.get('description')?.hasError('minlength')" id="password-help" class="p-error block">Description is too short.</small>
         </div>
         <div class="p-float-label">
             <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="genre"> 
             <label for="float-input-title">Genre</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
         </div>
         <div class="p-float-label">
             <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="author"> 
             <label for="float-input-title">Author</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
+            <small *ngIf="createForm.get('author')?.hasError('required')" id="password-help" class="p-error block">Author is required.</small>
         </div>
         <div class="p-float-label">
             <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publish_date"> 
             <label for="float-input-title">Publish date</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
         </div>
         <div class="p-float-label">
             <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="price"> 
             <label for="float-input-title">Price</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
         </div>
         <div class="p-float-label">
             <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
             <label for="binary">Is available?</label>
-            <small *ngIf="true" id="password-help" class="p-error block">Title is required.</small>
         </div>
         <div class="buttons">
             <button type="button" pButton>Cancel</button>
