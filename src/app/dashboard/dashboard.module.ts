@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { OverviewModule } from './overview/overview.module';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AvatarModule } from 'primeng/avatar';
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AvatarModule } from 'primeng/avatar';
     DashboardRoutingModule,
     OverviewModule,
     ToolbarModule,
-    AvatarModule
+    AvatarModule,
+    MenuModule
   ]
 })
 export class DashboardModule { }
