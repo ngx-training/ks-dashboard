@@ -1,0 +1,9 @@
+.book-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex: 1 1 0px;
+    margin-right: 2rem;
+}

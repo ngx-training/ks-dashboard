@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookDetailComponent } from './book-detail.component';
+import { PanelModule } from 'primeng/panel';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { ChipModule } from 'primeng/chip';
+import { TagModule } from 'primeng/tag';
 
 
 
@@ -9,7 +13,11 @@ import { BookDetailComponent } from './book-detail.component';
     BookDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PanelModule,
+    PipesModule,
+    ChipModule,
+    TagModule
   ],
   exports: [
     BookDetailComponent

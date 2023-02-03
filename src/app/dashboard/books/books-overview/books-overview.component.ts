@@ -36,8 +36,8 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
     //this.message$ = this.compCommunicationService.message$;
   }
 
-  showDetail() {
-
+  showDetail(bookId: string) {
+    this.router.navigate(['dashboard', 'books', 'detail', bookId]);
   }
 
   edit(bookId: number): void {

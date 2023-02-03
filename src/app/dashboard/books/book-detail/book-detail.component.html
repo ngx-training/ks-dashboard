@@ -1,1 +1,28 @@
-<p>book-detail works!</p>
+<div class="book-container">
+    <ng-container *ngIf="book$ | async as book">
+        <h2>Book: {{ book.title }}</h2>
+        <hr>
+        <div class="book-details">
+            <div class="column">
+                <p-panel header="Description">
+                    {{ book.description }}
+                </p-panel>
+            </div>
+            <div class="column">
+                <p-panel header="General">
+                    <p-tag [severity]="book.isAvailable ? 'success' : 'danger'" [value]="book.isAvailable ? 'available' : 'not available'"></p-tag>
+                    <!--<p-chip [label]="book.price"></p-chip>-->
+                </p-panel>
+                <p-panel header="Genre">
+                    <p-chip *ngFor="let genre of book.genres" [label]="genre.name"></p-chip>
+                </p-panel>
+                <p-panel header="Author">
+                    <p-chip *ngFor="let author of book.authors" [label]="author.name"></p-chip>
+                </p-panel>
+                <p-panel header="Category">
+                    {{ book.book_categories | categoryList:', ' }}
+                </p-panel>
+            </div>
+        </div>
+    </ng-container>
+</div>

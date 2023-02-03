@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooksOverviewComponent } from './books-overview.component';
 import { TableModule } from 'primeng/table';
-import { CategoryListPipe } from 'src/app/pipes/category-list.pipe';
 import { ButtonModule } from 'primeng/button';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
   declarations: [
     BooksOverviewComponent,
-    CategoryListPipe
   ],
   imports: [
     CommonModule,
     TableModule,
     ButtonModule,
+    PipesModule
   ],
   exports: [
     BooksOverviewComponent
