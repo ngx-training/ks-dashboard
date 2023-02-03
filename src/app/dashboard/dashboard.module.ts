@@ -7,6 +7,7 @@ import { OverviewModule } from './overview/overview.module';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AvatarModule } from 'primeng/avatar';
 import { MenuModule } from 'primeng/menu';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MenuModule } from 'primeng/menu';
     OverviewModule,
     ToolbarModule,
     AvatarModule,
-    MenuModule
+    MenuModule,
+    ButtonModule
   ]
 })
 export class DashboardModule { }

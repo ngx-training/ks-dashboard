@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { CompCommunicationService } from '../services/comp-communication.service';
 import { menuItems } from './menu';
 
 @Component({
@@ -10,5 +11,11 @@ import { menuItems } from './menu';
 export class DashboardComponent {
 
   menuItems: MenuItem[] = menuItems;
+
+  constructor(private compCommunicationService: CompCommunicationService) {}
+
+  sendMessage(): void {
+    this.compCommunicationService.sendMessage('Nachricht vom Dashboard');
+  }
 
 }
