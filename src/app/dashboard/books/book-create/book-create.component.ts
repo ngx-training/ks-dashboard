@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { BookService } from 'src/app/services/books/book.service';
 
 @Component({
   selector: 'app-book-create',
@@ -9,58 +11,44 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class BookCreateComponent implements OnInit {
 
   createForm!: FormGroup;
+  bookId!: string;
 
   fullWidth: any = { 'width': '100%' };
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private activatedRoute: ActivatedRoute,
+    private bookService: BookService
+  ) {
+    this.activatedRoute.params.subscribe(params => {
+      this.bookId = params['id'];
+    });
+  }
 
   ngOnInit(): void {
     this.createForm = this.buildForm();
 
-    this.createForm.valueChanges.subscribe(value => {
-      console.log('valueChanges', value);
+    this.bookService.getById(this.bookId).subscribe(book => {
+      this.createForm.patchValue(book);
     });
-
-    this.createForm.statusChanges.subscribe(status => {
-      console.log('statusChanges', status);
-    });
-
-    this.createForm.get('title')?.removeValidators(Validators.required);
-
-    const oldBookd = {
-      title: 'Test Old Book',
-      author: 'Gregor Doroschenko',
-      genre: 'Comedy',
-      isAvailable: false
-    };
-
+  
     // Hier müssen die Werte für alle FormControl gestzt werden
     // this.createForm.setValue(oldBookd);
 
     // Hier werden die Werte partiell gesetzt.
-    this.createForm.patchValue(oldBookd);
+    // this.createForm.patchValue(oldBookd);
   }
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
       title: ['Default title', [Validators.required]],
       description: ['Default description', [Validators.required, Validators.minLength(50)]],
-      author: [null, [Validators.required]],
-      genre: [null],
-      publish_date: [null],
+      publishDate: [null],
       price: [0.0],
       isAvailable: [true],
-      unterGruppe: this.formBuilder.group({
-        test: [null]
-      }),
-      categories: this.formBuilder.array([
-        this.formBuilder.group({
-          name: [null]
-        }),
-        this.formBuilder.group({
-          name: ['TT']
-        }),
-      ])
+      author: this.formBuilder.array([]),
+      genre: this.formBuilder.array([]),
+      book_categories: this.formBuilder.array([])
     });
   }
 

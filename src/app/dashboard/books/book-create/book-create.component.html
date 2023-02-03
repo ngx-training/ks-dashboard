@@ -9,7 +9,7 @@
                     <small *ngIf="createForm.get('title')?.hasError('required')" id="password-help" class="p-error block">Title is required.</small>
                 </div>
                 <div class="p-float-label">
-                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publish_date"> 
+                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publishDate"> 
                     <label for="float-input-title">Publish date</label>
                 </div>
                 <div class="p-float-label">
@@ -37,8 +37,8 @@
                     <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
                     <label for="binary">Is available?</label>
                 </div>
-                <div class="categories" formArrayName="categories">
-                    <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
+                <div class="categories" formArrayName="book_categories">
+                    <!-- <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
                         <div [formGroupName]="i">
                             <div class="p-float-label">
                                 <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
@@ -46,7 +46,7 @@
                                 <button pButton (click)="removeCategory(i)">Delete "Name {{ i }}"</button>
                             </div>
                         </div>
-                    </ng-container>
+                    </ng-container> -->
                     <button type="button" pButton (click)="addCategory()">Add Category</button>
                 </div>
             </div>
