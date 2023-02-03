@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooksOverviewComponent } from './books-overview.component';
-
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -9,7 +9,8 @@ import { BooksOverviewComponent } from './books-overview.component';
     BooksOverviewComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TableModule
   ],
   exports: [
     BooksOverviewComponent

@@ -1,3 +1,24 @@
-<p>books-overview works!</p>
+<div class="book-container">
+    <h2>All Books</h2>
 
-<pre *ngIf="books$ | async as books">{{ books | json }}</pre>
+    <div class="books-table" *ngIf="books$ | async as books">
+        <p-table [value]="books" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Title</th>
+                    <th>Publish date</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-book>
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.publishDate | date:'dd.MM.yyyy' }}</td>
+                    <td>{{ book.book_categories }}</td>
+                    <td>{{ book.price | currency:'EUR':'€':'.2' }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

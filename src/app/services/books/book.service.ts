@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Book } from './book';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.apiUrl + '/books');
+  getAll(): Observable<Book[]> {
+    return this.httpClient.get<Book[]>(this.apiUrl + '/books');
   }
 }

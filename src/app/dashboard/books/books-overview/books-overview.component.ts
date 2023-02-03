@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Book } from 'src/app/services/books/book';
 import { BookService } from 'src/app/services/books/book.service';
 import { CompCommunicationService } from 'src/app/services/comp-communication.service';
 
@@ -14,7 +15,7 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
 
   subscription: Subscription = new Subscription();
 
-  books$!: Observable<any[]>;
+  books$!: Observable<Book[]>;
 
   constructor(private compCommunicationService: CompCommunicationService, private bookService: BookService) {}
 
