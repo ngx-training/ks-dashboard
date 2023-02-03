@@ -12,7 +12,8 @@ registerLocaleData(localeDe, localeDeExtra);
 
 import { IntroModule } from './intro/intro.module';
 import { LoginModule } from './login/login.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './services/auth/jwt.interceptor';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
@@ -33,6 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     {
       provide: LOCALE_ID,
       useValue: 'de'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
     }
   ],
   // Hier wird die Komponenten importiert, die für die Ausführung der Anwendung notwending
