@@ -3,9 +3,9 @@
         <h1>Dashboard Login</h1>
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
             <span class="p-float-label">
-                <input id="float-input-email" type="text" pInputText [style]="{'width': '100%'}" [(ngModel)]="email" name="email" required> 
-                <label for="float-input-email">Email</label>
-                <small *ngIf="loginForm.controls['email']?.errors?.['required']" id="password-help" class="p-error block">Email is required.</small>
+                <input id="float-input-email" type="text" pInputText [style]="{'width': '100%'}" [(ngModel)]="identifier" name="identifier" required> 
+                <label for="float-input-email">Email or username</label>
+                <small *ngIf="loginForm.controls['identifier']?.errors?.['required']" id="password-help" class="p-error block">Email or username is required.</small>
             </span>
             <span class="p-float-label">
                 <input id="float-input-password" type="password" pInputText [style]="{'width': '100%'}" [(ngModel)]="password" name="password" required #passwordField="ngModel"> 
