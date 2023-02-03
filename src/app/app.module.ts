@@ -39,7 +39,7 @@ import { JwtInterceptor } from './services/auth/jwt.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }
+    },
   ],
   // Hier wird die Komponenten importiert, die für die Ausführung der Anwendung notwending
   bootstrap: [AppComponent]
