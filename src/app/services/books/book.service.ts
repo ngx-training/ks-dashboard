@@ -20,4 +20,19 @@ export class BookService {
     const url = `${this.apiUrl}/books/${bookId}`;
     return this.httpClient.get<Book>(url);
   }
+
+  create(bookData: Book): Observable<any> {
+    const url = `${this.apiUrl}/books`;
+    return this.httpClient.post<any>(url, bookData);
+  }
+
+  update(bookId: string, bookData: Book): Observable<any> {
+    const url = `${this.apiUrl}/books/${bookId}`;
+    return this.httpClient.put<any>(url, bookData);
+  }
+
+  delete(bookId: string): Observable<any> {
+    const url = `${this.apiUrl}/books/${bookId}`;
+    return this.httpClient.delete<any>(url);
+  }
 }

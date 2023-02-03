@@ -1,6 +1,6 @@
 <div class="book-container">
     <h2>Create Book</h2>
-    <form [formGroup]="createForm" class="book-form">
+    <form [formGroup]="createForm" (ngSubmit)="saveOrUpdate()" class="book-form">
         <div class="form-content">
             <div class="general">
                 <div class="p-float-label">

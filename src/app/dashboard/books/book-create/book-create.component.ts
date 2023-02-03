@@ -6,6 +6,7 @@ import { Author } from 'src/app/services/authors/author';
 import { AuthorService } from 'src/app/services/authors/author.service';
 import { BookCategory } from 'src/app/services/book-categories/book-category';
 import { BookCategoryService } from 'src/app/services/book-categories/book-category.service';
+import { Book } from 'src/app/services/books/book';
 import { BookService } from 'src/app/services/books/book.service';
 import { Genre } from 'src/app/services/genres/genre';
 import { GenreService } from 'src/app/services/genres/genre.service';
@@ -69,6 +70,15 @@ export class BookCreateComponent implements OnInit {
       genres: [],
       book_categories: []
     });
+  }
+
+  saveOrUpdate(): void {
+    const book: Book = this.createForm.value;
+    if (this.mode === 'edit') {
+      this.bookService.update(this.bookId, book).subscribe(res => console.log('Update', res));
+    } else {
+      this.bookService.create(book).subscribe(res => console.log('Create', res));
+    }
   }
 
 }
