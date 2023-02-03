@@ -9,12 +9,12 @@
                     <small *ngIf="createForm.get('title')?.hasError('required')" id="password-help" class="p-error block">Title is required.</small>
                 </div>
                 <div class="p-float-label">
-                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="publishDate"> 
-                    <label for="float-input-title">Publish date</label>
+                    <p-calendar formControlName="publishDate" dateFormat="yy-mm-dd" inputId="dateformat"></p-calendar>
+                    <label for="dateformat">Publish date</label>
                 </div>
                 <div class="p-float-label">
-                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="price"> 
-                    <label for="float-input-title">Price</label>
+                    <p-inputNumber formControlName="price" inputId="locale-german" mode="decimal" locale="de-DE" [minFractionDigits]="2"></p-inputNumber>
+                    <label for="locale-german">Price</label>
                 </div>
                 <div class="p-float-label">
                     <textarea id="float-input-title" type="text" pInputTextarea styleClass="full-width" rows="15" formControlName="description"></textarea>

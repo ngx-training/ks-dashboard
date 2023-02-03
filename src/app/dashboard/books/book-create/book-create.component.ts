@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Author } from 'src/app/services/authors/author';
 import { AuthorService } from 'src/app/services/authors/author.service';
@@ -34,7 +34,8 @@ export class BookCreateComponent implements OnInit {
     private bookService: BookService,
     private genreService: GenreService,
     private authorService: AuthorService,
-    private bookCategoryService: BookCategoryService
+    private bookCategoryService: BookCategoryService,
+    private router: Router
   ) {
     this.activatedRoute.queryParams.subscribe(queryParams => {
       const { mode } = queryParams;
@@ -75,9 +76,21 @@ export class BookCreateComponent implements OnInit {
   saveOrUpdate(): void {
     const book: Book = this.createForm.value;
     if (this.mode === 'edit') {
-      this.bookService.update(this.bookId, book).subscribe(res => console.log('Update', res));
+      this.bookService.update(this.bookId, book).subscribe(
+        res => {
+          this.router.navigate(['dashboard', 'books']);
+        }, 
+        error => {
+          console.error(error);
+        });
     } else {
-      this.bookService.create(book).subscribe(res => console.log('Create', res));
+      this.bookService.create(book).subscribe(
+        res => {
+          this.router.navigate(['dashboard', 'books']);
+        },
+        error => {
+          console.error(error);
+        });
     }
   }
 

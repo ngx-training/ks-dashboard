@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { CheckboxModule } from 'primeng/checkbox';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {MultiSelectModule} from 'primeng/multiselect';
     ReactiveFormsModule,
     InputTextareaModule,
     CheckboxModule,
-    MultiSelectModule
+    MultiSelectModule,
+    CalendarModule,
+    InputNumberModule
   ],
   exports: [
     BookCreateComponent
