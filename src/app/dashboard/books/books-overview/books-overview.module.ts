@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BooksOverviewComponent } from './books-overview.component';
 import { TableModule } from 'primeng/table';
 import { CategoryListPipe } from 'src/app/pipes/category-list.pipe';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CategoryListPipe } from 'src/app/pipes/category-list.pipe';
   ],
   imports: [
     CommonModule,
-    TableModule
+    TableModule,
+    ButtonModule,
   ],
   exports: [
     BooksOverviewComponent

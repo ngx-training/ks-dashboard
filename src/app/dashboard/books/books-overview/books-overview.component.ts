@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Book } from 'src/app/services/books/book';
 import { BookService } from 'src/app/services/books/book.service';
@@ -17,7 +18,11 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
 
   books$!: Observable<Book[]>;
 
-  constructor(private compCommunicationService: CompCommunicationService, private bookService: BookService) {}
+  constructor(
+    private compCommunicationService: CompCommunicationService, 
+    private bookService: BookService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.subscription.add(
@@ -29,6 +34,18 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
     this.books$ = this.bookService.getAll();
 
     //this.message$ = this.compCommunicationService.message$;
+  }
+
+  showDetail() {
+
+  }
+
+  edit(bookId: number): void {
+    this.router.navigate(['dashboard', 'books', 'edit', bookId]);
+  }
+
+  delete(bookId: number): void {
+    
   }
 
   ngOnDestroy(): void {

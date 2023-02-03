@@ -9,6 +9,7 @@
                     <th>Publish date</th>
                     <th>Category</th>
                     <th>Price</th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-book>
@@ -17,6 +18,31 @@
                     <td>{{ book.publishDate | date:'dd.MM.yyyy' }}</td>
                     <td>{{ book.book_categories | categoryList:', ' }}</td>
                     <td>{{ book.price | currency:'EUR':'€':'.2' }}</td>
+                    <td>
+                        <span class="p-buttonset">
+                            <button 
+                                pButton 
+                                pRipple 
+                                icon="pi pi-info-circle" 
+                                class="p-button-sm p-button-outlined p-button-secondary"
+                                (click)="showDetail()"
+                            ></button>
+                            <button 
+                                pButton 
+                                pRipple 
+                                icon="pi pi-pencil" 
+                                class="p-button-sm p-button-outlined p-button-secondary"
+                                (click)="edit(book.id)"
+                            ></button>
+                            <button 
+                                pButton 
+                                pRipple 
+                                icon="pi pi-trash" 
+                                class="p-button-sm p-button-outlined p-button-secondary"
+                                (click)="delete(book.id)"
+                            ></button>
+                        </span>
+                    </td>
                 </tr>
             </ng-template>
         </p-table>
