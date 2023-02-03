@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 import { Observable, Subscription } from 'rxjs';
 import { Book } from 'src/app/services/books/book';
 import { BookService } from 'src/app/services/books/book.service';
@@ -8,7 +9,8 @@ import { CompCommunicationService } from 'src/app/services/comp-communication.se
 @Component({
   selector: 'app-books-overview',
   templateUrl: './books-overview.component.html',
-  styleUrls: ['./books-overview.component.css']
+  styleUrls: ['./books-overview.component.css'],
+  providers: [ConfirmationService]
 })
 export class BooksOverviewComponent implements OnInit, OnDestroy {
 
@@ -21,7 +23,8 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
   constructor(
     private compCommunicationService: CompCommunicationService, 
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +47,17 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
     this.router.navigate(['dashboard', 'books', 'edit', bookId], { queryParams: { mode: 'edit' }});
   }
 
-  delete(bookId: number): void {
-    
+  delete(bookdId: string, bookTitle: string): void {
+    this.confirmationService.confirm({
+      message: `Willst du das Buch "${bookTitle}" wirklich löschen?`,
+      header: 'Buch löschen',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.bookService.delete(bookdId).subscribe(() => {
+          this.books$ = this.bookService.getAll();
+        });
+      }
+    });
   }
 
   ngOnDestroy(): void {

@@ -4,6 +4,7 @@ import { BooksOverviewComponent } from './books-overview.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     CommonModule,
     TableModule,
     ButtonModule,
-    PipesModule
+    PipesModule,
+    ConfirmDialogModule
   ],
   exports: [
     BooksOverviewComponent
