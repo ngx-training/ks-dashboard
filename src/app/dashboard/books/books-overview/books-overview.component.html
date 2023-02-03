@@ -1,3 +1,3 @@
 <p>books-overview works!</p>
 
-<p>Message: {{ message$ | async }}</p>
+<pre *ngIf="books$ | async as books">{{ books | json }}</pre>

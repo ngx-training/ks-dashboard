@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { BookService } from 'src/app/services/books/book.service';
 import { CompCommunicationService } from 'src/app/services/comp-communication.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { CompCommunicationService } from 'src/app/services/comp-communication.se
 })
 export class BooksOverviewComponent implements OnInit, OnDestroy {
 
-  message$!: Observable<string>;
+  //message$!: Observable<string>;
 
-  subscription!: Subscription;
+  subscription: Subscription = new Subscription();
 
-  constructor(private compCommunicationService: CompCommunicationService) {}
+  books$!: Observable<any[]>;
+
+  constructor(private compCommunicationService: CompCommunicationService, private bookService: BookService) {}
 
   ngOnInit(): void {
     this.subscription.add(
@@ -22,7 +25,9 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.message$ = this.compCommunicationService.message$;
+    this.books$ = this.bookService.getAll();
+
+    //this.message$ = this.compCommunicationService.message$;
   }
 
   ngOnDestroy(): void {

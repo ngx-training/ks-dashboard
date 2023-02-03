@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { IntroModule } from './intro/intro.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   // Hier werden alle Komponenten, Direktiven, Pipes importiert
@@ -19,7 +20,8 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     IntroModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
   ],
   // Hier werden die Service, Logiken importiert
   providers: [],
