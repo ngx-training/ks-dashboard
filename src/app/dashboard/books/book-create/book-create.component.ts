@@ -19,6 +19,7 @@ export class BookCreateComponent implements OnInit {
 
   createForm!: FormGroup;
   bookId!: string;
+  mode!: string;
 
   genres$!: Observable<Genre[]>
   authors$!: Observable<Author[]>;
@@ -34,6 +35,10 @@ export class BookCreateComponent implements OnInit {
     private authorService: AuthorService,
     private bookCategoryService: BookCategoryService
   ) {
+    this.activatedRoute.queryParams.subscribe(queryParams => {
+      const { mode } = queryParams;
+      this.mode = mode;
+    });
     this.activatedRoute.params.subscribe(params => {
       this.bookId = params['id'];
     });
@@ -42,9 +47,11 @@ export class BookCreateComponent implements OnInit {
   ngOnInit(): void {
     this.createForm = this.buildForm();
 
-    this.bookService.getById(this.bookId).subscribe(book => {
-      this.createForm.patchValue(book);
-    });
+    if (this.mode === 'edit') {
+      this.bookService.getById(this.bookId).subscribe(book => {
+        this.createForm.patchValue(book);
+      });
+    }
 
     this.genres$ = this.genreService.getAll();
     this.authors$ = this.authorService.getAll();

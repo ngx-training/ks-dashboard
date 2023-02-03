@@ -41,7 +41,7 @@ export class BooksOverviewComponent implements OnInit, OnDestroy {
   }
 
   edit(bookId: number): void {
-    this.router.navigate(['dashboard', 'books', 'edit', bookId]);
+    this.router.navigate(['dashboard', 'books', 'edit', bookId], { queryParams: { mode: 'edit' }});
   }
 
   delete(bookId: number): void {
