@@ -27,6 +27,7 @@ export class BookCreateComponent implements OnInit {
   bookCategories$!: Observable<BookCategory[]>;
 
   fullWidth: any = { 'width': '100%' };
+  isLoading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -75,20 +76,25 @@ export class BookCreateComponent implements OnInit {
 
   saveOrUpdate(): void {
     const book: Book = this.createForm.value;
+    this.isLoading = true;
     if (this.mode === 'edit') {
       this.bookService.update(this.bookId, book).subscribe(
         res => {
+          this.isLoading = false;
           this.router.navigate(['dashboard', 'books']);
         }, 
         error => {
+          this.isLoading = false;
           console.error(error);
         });
     } else {
       this.bookService.create(book).subscribe(
         res => {
+          this.isLoading = false;
           this.router.navigate(['dashboard', 'books']);
         },
         error => {
+          this.isLoading = false;
           console.error(error);
         });
     }
