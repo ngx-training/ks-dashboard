@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{ book.title }}</td>
                     <td>{{ book.publishDate | date:'dd.MM.yyyy' }}</td>
-                    <td>{{ book.book_categories }}</td>
+                    <td>{{ book.book_categories | categoryList:', ' }}</td>
                     <td>{{ book.price | currency:'EUR':'€':'.2' }}</td>
                 </tr>
             </ng-template>
