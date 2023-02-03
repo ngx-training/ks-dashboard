@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverviewComponent } from './overview.component';
+import { UiModule } from 'src/app/ui/ui.module';
 
 
 
@@ -9,7 +10,8 @@ import { OverviewComponent } from './overview.component';
     OverviewComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UiModule
   ],
   exports: [
     OverviewComponent
