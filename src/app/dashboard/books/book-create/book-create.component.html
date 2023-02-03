@@ -24,30 +24,22 @@
                 </div>
             </div>
             <div class="relations">
-                <div class="p-float-label">
-                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="genre"> 
+                <div class="p-float-label" *ngIf="genres$ | async as genres">
+                    <p-multiSelect [options]="genres" formControlName="genres" defaultLabel="Select genre" optionLabel="name" dataKey="id"></p-multiSelect>
                     <label for="float-input-title">Genre</label>
                 </div>
-                <div class="p-float-label">
-                    <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="author"> 
+                <div class="p-float-label" *ngIf="authors$ | async as authors">
+                    <p-multiSelect [options]="authors" formControlName="authors" defaultLabel="Select author" optionLabel="name" dataKey="id"></p-multiSelect>
                     <label for="float-input-title">Author</label>
                     <small *ngIf="createForm.get('author')?.hasError('required')" id="password-help" class="p-error block">Author is required.</small>
+                </div>
+                <div class="p-float-label" *ngIf="bookCategories$ | async as bookCategories">
+                    <p-multiSelect [options]="bookCategories" formControlName="book_categories" defaultLabel="Select category" optionLabel="displayName" dataKey="id"></p-multiSelect>
+                    <label for="float-input-title">Category</label>
                 </div>
                 <div class="p-float-label checkbox">
                     <p-checkbox [binary]="true" inputId="binary" formControlName="isAvailable"></p-checkbox>
                     <label for="binary">Is available?</label>
-                </div>
-                <div class="categories" formArrayName="book_categories">
-                    <!-- <ng-container *ngFor="let categoryControl of categoreis.controls; let i = index">
-                        <div [formGroupName]="i">
-                            <div class="p-float-label">
-                                <input id="float-input-title" type="text" pInputText styleClass="full-width" formControlName="name"> 
-                                <label for="float-input-title">Name {{ i }}</label>
-                                <button pButton (click)="removeCategory(i)">Delete "Name {{ i }}"</button>
-                            </div>
-                        </div>
-                    </ng-container> -->
-                    <button type="button" pButton (click)="addCategory()">Add Category</button>
                 </div>
             </div>
         </div>
